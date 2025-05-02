@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% block title %} Produkti {% endblock %}
+{% block title %} Products {% endblock %}
 {% block content %}
-<h2>Produkti</h2>
+<h2>Products</h2>
 <div class="products-list">
     {% for product in products %}
     <a class="products-item" href="{{ url_for('products_show', product_id=product['id']) }}">
