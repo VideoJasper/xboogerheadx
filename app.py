@@ -11,7 +11,7 @@ def get_db_connection():
     Izveido un atgriež savienojumu ar SQLite datubāzi.
     """
     # Atrod ceļu uz datubāzes failu (tas atrodas tajā pašā mapē, kur šis fails)
-    db = Path(__file__).parent / "miniveikalins.db"
+    db = Path(__file__).parent / "Cepumkaste.db"
     # Izveido savienojumu ar SQLite datubāzi
     conn = sqlite3.connect(db)
     # Nodrošina, ka rezultāti būs pieejami kā vārdnīcas (piemēram: product["name"])
@@ -47,10 +47,10 @@ def products_show(product_id):
     # Izpilda SQL vaicājumu, kurš atgriež tikai vienu produktu pēc ID
     product = conn.execute(
         """
-        SELECT "Products".*, "producers"."name" AS "producer"
+        SELECT "products".*, "producers"."name" AS "producer"
         FROM products
-        LEDT JOIN "producers" ON "Products"."producer_id" = "producers"."id"
-        WHERE "Products"."id" = ?
+        LEFT JOIN "producers" ON "products"."producer_id" = "producers"."id"
+        WHERE "products"."id" = ?
         """,
         (product_id,),
     ).fetchone()
