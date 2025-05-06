@@ -3,23 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for ('static', filename='style.css') }} ">
-
+    <title>{% block title %}Cookiebox{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+
+    <!-- Header / Navigation -->
     <header>
-        <nav>
-            <a href="/">Main menu</a>
-            <a href="/produkti">Products</a>
-            <a href="/par-mums">About us</a>
+        <nav class="navbar">
+            <div class="logo">Cookiebox</div> <!-- You can replace this with an image later if needed -->
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('products') }}">Products</a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+            </ul>
         </nav>
     </header>
+
+    <!-- Main Content -->
     <main>
         {% block content %}{% endblock %}
     </main>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Cookiebox</p>
+        <p>&copy; 2025 Cookiebox. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
