@@ -1,13 +1,23 @@
 {% extends "base.html" %}
-{% block title %}{{product.name}} - Cookiebox{% endblock %}
+
+{% block title %}{{ product.name }} - Cookiebox{% endblock %}
+
 {% block content %}
-<div class = "products-show">
-    <img src ="{{ url_for('static', filename='images/products/' ~ product['image']) }}"
-    alt ="{{ product['name'] }}">
-    <div>
-    <h2>{{product["name"]}}</h2>
-    <p>Cena: {{product["price"]}} €</p>
+<div class="product-detail">
+    <div class="product-image-section">
+        <img src="{{ url_for('static', filename='images/products/' + product.image) }}" alt="{{ product.name }}" class="product-image">
+        <h2 class="product-name">{{ product.name }}</h2>
+        <p class="dip-quality">Dip Quality: {{ product.dip_quality }}/5</p>
+        <p class="product-price">{{ product.price }}€</p>
+    </div>
+    <div class="product-description-section">
+        <h3>Description</h3>
+        <p>{{product.description}}</p>
+        
+        <div class="product-info-bottom">
+            <p><strong>Producer:</strong> {{ product.producer_name }}</p>
+            <p><strong>Available at:</strong> {{ product.shop_name }}</p>
+        </div>
     </div>
 </div>
-
 {% endblock %}
