@@ -149,13 +149,10 @@ ul li:hover {
     color: #4b2e2e;
     text-align: center;
     font-weight: 700;
-    
-    /* Add soft creamy text shadow */
     text-shadow: 
-        0 0 5px #f7ede2, /* small soft glow */
-        0 0 10px #f7ede2; /* slightly bigger glow */
+        0 0 5px #f7ede2,
+        0 0 10px #f7ede2;
 }
-
 
 .delete-button {
     background-color: #d9534f;
