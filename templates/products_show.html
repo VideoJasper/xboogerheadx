@@ -12,7 +12,7 @@
     </div>
     <div class="product-description-section">
         <h3>Description</h3>
-        <p>{{product.description}}</p>
+        <p>{{product.description.replace('\\n', '<br>') | safe}}</p>
         
         <div class="product-info-bottom">
             <p><strong>Producer:</strong> {{ product.producer_name }}</p>
